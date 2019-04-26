@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./dungeon_master.rb')
 
 class Character
 
@@ -33,11 +34,41 @@ class Character
     @id = result['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE characters
+    SET (
+      player_name,
+      character_name,
+      race,
+      character_class,
+      level,
+      dm_id
+      ) = (
+        $1, $2, $3, $4, $5, $6
+        )
+        WHERE id = $7;"
+    values = [@player_name, @character_name, @race, @character_class, @level, @dm_id, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all()
     sql = "SELECT * FROM characters;"
     characters = SqlRunner.run(sql)
     result = Character.map_item(characters)
     return result
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM characters
+    WHERE id = $1;"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    return Character.new(result)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM characters;"
+    SqlRunner.run(sql)
   end
 
   def self.map_item(data_source)

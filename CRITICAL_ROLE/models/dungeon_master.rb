@@ -27,11 +27,39 @@ class DungeonMaster
     @id = result['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE dungeon_masters
+    SET (
+      dm_name,
+      campaign,
+      level_req
+    ) = (
+      $1, $2, $3
+    )
+    WHERE id = $4;
+    "
+    values = [@dm_name, @campaign, @level_req, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all()
     sql = "SELECT * FROM dungeon_masters;"
     dms = SqlRunner.run(sql)
     result = DungeonMaster.map_item(dms)
     return result
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM dungeon_masters
+    WHERE id = $1;"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    return DungeonMaster.new(result)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM dungeon_masters;"
+    SqlRunner.run(sql)
   end
 
   def self.map_item(data_source)

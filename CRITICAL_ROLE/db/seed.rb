@@ -2,7 +2,8 @@ require('pry-byebug')
 require_relative('../models/character.rb')
 require_relative('../models/dungeon_master.rb')
 
-
+Character.delete_all()
+DungeonMaster.delete_all()
 
 dm1 = DungeonMaster.new({
   "dm_name" => "Calum",
