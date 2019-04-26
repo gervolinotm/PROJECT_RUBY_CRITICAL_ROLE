@@ -33,5 +33,17 @@ class Character
     @id = result['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM characters;"
+    characters = SqlRunner.run(sql)
+    result = Character.map_item(characters)
+    return result
+  end
+
+  def self.map_item(data_source)
+    result = data_source.map { |character| Character.new(character)}
+    return result
+  end
+
 
 end
