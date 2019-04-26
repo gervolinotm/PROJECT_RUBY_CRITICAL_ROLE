@@ -1,0 +1,13 @@
+<h1>DUNGEONS & DRAGONS</h1>
+
+<h2>Adventurers</h2>
+
+<% @characters.each do |character| %>
+  <p>Name: <%= character.player_name.capitalize %></p>
+  <p>Character Name: <%= character.character_name.capitalize %></p>
+  <p>Race: <%= character.race.capitalize %></p>
+  <p>Class: <%= character.character_class.capitalize %></p>
+  <p>Level: <%= character.level %></p>
+  <br>
+  <br>
+<% end %>
