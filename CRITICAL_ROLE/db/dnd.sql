@@ -13,7 +13,7 @@ CREATE TABLE characters (
   player_name VARCHAR(255),
   character_name VARCHAR(255),
   race VARCHAR(255),
-  class VARCHAR(255),
+  character_class VARCHAR(255),
   level INT4,
   dm_id INT4 REFERENCES dungeon_masters(id)
 );
