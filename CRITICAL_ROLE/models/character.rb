@@ -51,6 +51,14 @@ class Character
     SqlRunner.run(sql, values)
   end
 
+  def dungeon_master()
+    sql = "SELECT * FROM dungeon_masters
+    WHERE id = $1;"
+    values = [@dm_id]
+    result = SqlRunner.run(sql, values).first
+    return DungeonMaster.new(result)
+  end
+
   def self.all()
     sql = "SELECT * FROM characters;"
     characters = SqlRunner.run(sql)
