@@ -79,6 +79,14 @@ class Character
     SqlRunner.run(sql)
   end
 
+  def self.destroy( id )
+    sql = "DELETE FROM characters
+    WHERE id = $1;"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+
   def self.map_item(data_source)
     result = data_source.map { |character| Character.new(character)}
     return result

@@ -62,6 +62,13 @@ class DungeonMaster
     SqlRunner.run(sql)
   end
 
+  def self.destroy( id )
+    sql = "DELETE FROM dungeon_masters
+    WHERE id = $1;"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.map_item(data_source)
     result = data_source.map { |dm| DungeonMaster.new(dm)}
     return result
