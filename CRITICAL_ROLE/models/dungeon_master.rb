@@ -12,4 +12,19 @@ class DungeonMaster
     @level_req = options['level_req'].to_i
   end
 
+  def save()
+    sql = "INSERT INTO dungeon_masters
+    (
+      dm_name,
+      campaign,
+      level_req
+      ) VALUES (
+        $1, $2, $3
+        )
+        RETURNING id;"
+    values = [@dm_name, @campaign, @level_req]
+    result = SqlRunner.run(sql, values).first
+    @id = result['id'].to_i
+  end
+
 end

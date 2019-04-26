@@ -9,14 +9,14 @@ dm1 = DungeonMaster.new({
   "campaign" => "Curse of Stradh",
   "level_req" => "2"
 })
-# dm1.save()
+ dm1.save()
 
 dm2 = DungeonMaster.new({
   "dm_name" => "John",
   "campaign" => "Tomb of Annihilation",
   "level_req" => "7"
 })
-# dm2.save()
+ dm2.save()
 
 
 character1 = Character.new({
@@ -27,7 +27,7 @@ character1 = Character.new({
   "level" => "7",
   "dm_id" => dm2.id
 })
-# character1.save()
+ character1.save()
 
 character2 = Character.new({
   "player_name" => "Ross",
@@ -37,7 +37,7 @@ character2 = Character.new({
   "level" => "9",
   "dm_id" => dm2.id
 })
-#character2.save()
+character2.save()
 
 character3 = Character.new({
   "player_name" => "Thomas",
@@ -47,7 +47,7 @@ character3 = Character.new({
   "level" => "5",
   "dm_id" => dm1.id
 })
-#character3.save()
+character3.save()
 
 character4 = Character.new({
   "player_name" => "Harry",
@@ -57,7 +57,7 @@ character4 = Character.new({
   "level" => "8",
   "dm_id" => dm2.id
 })
-#character4.save()
+character4.save()
 
 character5 = Character.new({
   "player_name" => "Calum",
@@ -67,7 +67,7 @@ character5 = Character.new({
   "level" => "3",
   "dm_id" => dm1.id
 })
-#character5.save()
+character5.save()
 
 
 

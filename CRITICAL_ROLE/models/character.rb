@@ -15,6 +15,23 @@ class Character
     @dm_id = options['dm_id'].to_i
   end
 
+  def save()
+    sql = "INSERT INTO characters
+    (
+      player_name,
+      character_name,
+      race,
+      character_class,
+      level,
+      dm_id
+      ) VALUES (
+        $1, $2, $3, $4, $5, $6
+        )
+        RETURNING id;"
+    values = [@player_name, @character_name, @race, @character_class, @level, @dm_id]
+    result = SqlRunner.run(sql, values).first
+    @id = result['id'].to_i
+  end
 
 
 end
