@@ -8,7 +8,7 @@ DROP TABLE campaigns;
 
 CREATE TABLE campaigns (
   id SERIAL4 PRIMARY KEY,
-  campaign VARCHAR(255)
+  campaign_name VARCHAR(255)
 );
 
 CREATE TABLE character_classes (
