@@ -1,0 +1,47 @@
+<form action="/characters" method="post">
+  <label for="player-name">Player Name:</label>
+  <input type="text" name="player_name" id="player-name"/>
+  <br>
+  <label for="character-name">Character Name:</label>
+  <input type="text" name="character_name" id="player-name"/>
+  <br>
+  <label for="race">Select Race:</label>
+  <select name="race" id="race">
+    <option value="Human">Human</option>
+    <option value="Half-Elf">Half-Elf</option>
+    <option value="Half-Orc">Half-Orc</option>
+    <option value="Drawf">Drawf</option>
+    <option value="Tiefling">Tiefling</option>
+    <option value="Gnome">Gnome</option>
+    <option value="Dragonborn">Dragonborn</option>
+    <option value="Halfling">Halfling</option>
+  </select>
+  <br>
+  <label for="class">Select Class:</label>
+  <select name="character_class" id="class">
+    <option value="Barbarian">Barbarian</option>
+    <option value="Bard">Bard</option>
+    <option value="Cleric">Cleric</option>
+    <option value="Druid">Druid</option>
+    <option value="Fighter">Fighter</option>
+    <option value="Monk">Monk</option>
+    <option value="Paladin">Paladin</option>
+    <option value="Ranger">Ranger</option>
+    <option value="Rogue">Rogue</option>
+    <option value="Sorcerer">Sorcerer</option>
+    <option value="Warlock">Warlock</option>
+    <option value="Wizard">Wizard</option>
+  </select>
+  <br>
+  <label for="level">Level:</label>
+  <input type="number" name="level" id="level"/>
+  <br>
+  <label for="dungeon_master_campaign">Select Campaign:</label>
+  <select name="dm_id" id="dungeon_master_campaign">
+     <% for dm in @dms %>
+       <option value="<%= dm.id %>"><%= dm.campaign %></option>
+     <% end %>
+  </select>
+  <br>
+  <input type="submit"value="Create New Character"/>
+</form>

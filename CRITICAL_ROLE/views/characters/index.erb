@@ -1,4 +1,7 @@
+
 <h1>DUNGEONS & DRAGONS</h1>
+
+<li><a href="/characters/new">Create New Character</a></li>
 
 <h2>Adventurers</h2>
 
@@ -8,6 +11,7 @@
   <p>Race: <%= character.race.capitalize %></p>
   <p>Class: <%= character.character_class.capitalize %></p>
   <p>Level: <%= character.level %></p>
+  <p><a href="/characters/<%= character.id %>">Show Character</a></p>
   <br>
   <br>
 <% end %>
