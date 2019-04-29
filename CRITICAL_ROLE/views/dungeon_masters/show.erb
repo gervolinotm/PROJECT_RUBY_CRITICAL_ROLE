@@ -1,0 +1,12 @@
+<h1>DUNGEONS & DRAGONS</h1>
+
+<h2>Welcome, almighty one!</h2>
+<h2>What can this lowly servant help you with?</h2>
+<br>
+<h3>Name: <%= @dm.dm_name %></h3>
+<p>Campaign: <%= @dm.campaign %></p>
+<p>Level Req: <%= @dm.level_req %></p>
+<h4><a href="/dungeon-masters/<%= @dm.id %>/edit">Update Details</a></h4>
+<form action="/dungeon-masters/<%= @dm.id %>/delete" method="post">
+  <input type="submit" value="Delete Campaign">
+</form>

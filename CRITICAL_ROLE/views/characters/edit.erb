@@ -12,6 +12,7 @@
 
   <label for="race">Select Race:</label>
   <select name="race" id="race">
+
     <option value="Human"<%= "selected" if @character.race == "Human" %>>Human</option>
     <option value="Half-Elf"<%= "selected" if @character.race == "Half-Elf" %>>Half-Elf</option>
     <option value="Half-Orc"<%= "selected" if @character.race == "Half-Orc" %>>Half-Orc</option>
@@ -20,28 +21,25 @@
     <option value="Gnome"<%= "selected" if @character.race == "Gnome" %>>Gnome</option>
     <option value="Dragonborn"<%= "selected" if @character.race == "Dragonborn" %>>Dragonborn</option>
     <option value="Halfling"<%= "selected" if @character.race == "Halfling" %>>Halfling</option>
+
   </select>
 
   <br>
 
   <label for="class">Select Class:</label>
   <select name="character_class" id="class">
-    <option
-    value="Barbarian"
-    <%= "selected" if @character.character_class == "Barbarian" %>>
-    Barbarian
-   </option>
-    <option value="Bard"<%= "selected" if @character.character_class == "Bard" %>>Bard</option>
-    <option value="Cleric"<%= "selected" if @character.character_class == "Cleric" %>>Cleric</option>
-    <option value="Druid"<%= "selected" if @character.character_class == "Druid" %>>Druid</option>
-    <option value="Fighter"<%= "selected" if @character.character_class == "Fighter" %>>Fighter</option>
-    <option value="Monk"<%= "selected" if @character.character_class == "Monk" %>>Monk</option>
-    <option value="Paladin"<%= "selected" if @character.character_class == "Paladin" %>>Paladin</option>
-    <option value="Ranger"<%= "selected" if @character.character_class == "Ranger" %>>Ranger</option>
-    <option value="Rogue"<%= "selected" if @character.character_class == "Rogue" %>>Rogue</option>
-    <option value="Sorcerer"<%= "selected" if @character.character_class == "Sorcerer" %>>Sorcerer</option>
-    <option value="Warlock"<%= "selected" if @character.character_class == "Warlock" %>>Warlock</option>
-    <option value="Wizard"<%= "selected" if @character.character_class == "Wizard" %>>Wizard</option>
+      <option value="Barbarian" <%= "selected" if @character.character_class == "Barbarian" %>>Barbarian</option>
+      <option value="Bard"<%= "selected" if @character.character_class == "Bard" %>>Bard</option>
+      <option value="Cleric"<%= "selected" if @character.character_class == "Cleric" %>>Cleric</option>
+      <option value="Druid"<%= "selected" if @character.character_class == "Druid" %>>Druid</option>
+      <option value="Fighter"<%= "selected" if @character.character_class == "Fighter" %>>Fighter</option>
+      <option value="Monk"<%= "selected" if @character.character_class == "Monk" %>>Monk</option>
+      <option value="Paladin"<%= "selected" if @character.character_class == "Paladin" %>>Paladin</option>
+      <option value="Ranger"<%= "selected" if @character.character_class == "Ranger" %>>Ranger</option>
+      <option value="Rogue"<%= "selected" if @character.character_class == "Rogue" %>>Rogue</option>
+      <option value="Sorcerer"<%= "selected" if @character.character_class == "Sorcerer" %>>Sorcerer</option>
+      <option value="Warlock"<%= "selected" if @character.character_class == "Warlock" %>>Warlock</option>
+      <option value="Wizard"<%= "selected" if @character.character_class == "Wizard" %>>Wizard</option>
   </select>
 
   <br>

@@ -1,0 +1,14 @@
+<h1>DUNGEONS & DRAGONS</h1>
+
+<li><a href="/dungeon-masters/new">New Campaign</a></li>
+
+<h2>Dungeon Masters</h2>
+
+<% @dms.each do |dm| %>
+  <p>Name: <%= dm.dm_name %></p>
+  <p>Campaign: <%= dm.campaign %></p>
+  <p>Level Req: <%= dm.level_req %></p>
+  <a href="/dungeon-masters/<%= dm.id %>">Show Campaign</a>
+  <br>
+  <br>
+<% end %>
