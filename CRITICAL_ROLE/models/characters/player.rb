@@ -38,5 +38,39 @@ class Player
     SqlRunner.run(sql, values)
   end
 
+  def self.all()
+    sql = "SELECT * FROM players;"
+    players = SqlRunner.run(sql)
+    result = Player.map_item(players)
+    return result
+  end
+
+  def self.find( id )
+    sql = "SELECT * FROM players
+    WHERE id = $1;"
+    values = [id]
+    result = SqlRunner.run(sql, values).first
+    return Player.new(result)
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM players;"
+    SqlRunner.run(sql)
+  end
+
+  def self.destroy( id )
+    sql = "DELETE FROM players
+    WHERE id = $1;"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
+
+  def self.map_item(data_source)
+    result = data_source.map { |player| Player.new(player)}
+    return result
+  end
+
+
 
 end
