@@ -11,10 +11,10 @@ class Character
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @player_name = options['player_id'].to_i
+    @player_id = options['player_id'].to_i
     @character_name = options['character_name']
-    @race = options['race_id'].to_i
-    @character_class = options['character_class_id'].to_i
+    @race_id = options['race_id'].to_i
+    @character_class_id = options['character_class_id'].to_i
     @level = options['level'].to_i
   end
 

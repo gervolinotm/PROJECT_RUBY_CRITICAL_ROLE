@@ -16,88 +16,161 @@ Race.delete_all()
 DungeonMaster.delete_all()
 Campaign.delete_all()
 
+#Player
 player1 = Player.new({
-  "first_name" => "Luke",
-  "last_name" => "Watson"
+  "first_name" => "Calum",
+  "last_name" => "Nicol"
   })
 player1.save()
 
 player2 = Player.new({
-  "first_name" => "Luke",
-  "last_name" => "Watson"
+  "first_name" => "Liam",
+  "last_name" => "Morris"
   })
 player2.save()
 
 player3 = Player.new({
-  "first_name" => "Luke",
-  "last_name" => "Watson"
+  "first_name" => "Ross",
+  "last_name" => "McCarthy"
   })
 player3.save()
 
-# dm1 = DungeonMaster.new({
-#   "dm_name" => "Calum",
-#   "campaign" => "Curse of Stradh",
-#   "level_req" => "2"
-# })
-#  dm1.save()
-#
-# dm2 = DungeonMaster.new({
-#   "dm_name" => "John",
-#   "campaign" => "Tomb of Annihilation",
-#   "level_req" => "7"
-# })
-#  dm2.save()
-#
-#
-# character1 = Character.new({
-#   "player_name" => "Liam",
-#   "character_name" => "Rurich",
-#   "race" => "Human",
-#   "character_class" => "Cleric",
-#   "level" => "7",
-#   "dm_id" => dm2.id
-# })
-#  character1.save()
-#
-# character2 = Character.new({
-#   "player_name" => "Ross",
-#   "character_name" => "Kirta",
-#   "race" => "Gnome",
-#   "character_class" => "Wizard",
-#   "level" => "9",
-#   "dm_id" => dm2.id
-# })
-# character2.save()
-#
-# character3 = Character.new({
-#   "player_name" => "Thomas",
-#   "character_name" => "Kayla",
-#   "race" => "Aasimar",
-#   "character_class" => "Barbarian",
-#   "level" => "5",
-#   "dm_id" => dm1.id
-# })
-# character3.save()
-#
-# character4 = Character.new({
-#   "player_name" => "Harry",
-#   "character_name" => "Heskan",
-#   "race" => "Dragonborn",
-#   "character_class" => "Monk",
-#   "level" => "8",
-#   "dm_id" => dm2.id
-# })
-# character4.save()
-#
-# character5 = Character.new({
-#   "player_name" => "Calum",
-#   "character_name" => "Koopa",
-#   "race" => "Tortle",
-#   "character_class" => "Sorceror",
-#   "level" => "3",
-#   "dm_id" => dm1.id
-# })
-# character5.save()
+
+#Class
+class1 = CharacterClass.new({
+  "class_name" => "Cleric"
+  })
+class1.save()
+
+class2 = CharacterClass.new({
+  "class_name" => "Barbarian"
+  })
+  class2.save()
+
+class3 = CharacterClass.new({
+  "class_name" => "Bard"
+  })
+  class3.save()
+
+class4 = CharacterClass.new({
+  "class_name" => "Ranger"
+  })
+  class4.save()
+
+class5 = CharacterClass.new({
+  "class_name" => "Sorcerer"
+  })
+  class5.save()
+
+class6 = CharacterClass.new({
+  "class_name" => "Rogue"
+  })
+  class6.save()
+
+class7 = CharacterClass.new({
+  "class_name" => "Wizard"
+  })
+  class7.save()
+
+class8 = CharacterClass.new({
+  "class_name" => "Paladin"
+  })
+  class8.save()
+
+
+#Race
+race1 = Race.new({
+  "race" => "Half-Orc"
+  })
+race1.save()
+
+race2 = Race.new({
+  "race" => "Half-Elf"
+  })
+race2.save()
+
+race3 = Race.new({
+  "race" => "Halfling"
+  })
+race3.save()
+
+race4 = Race.new({
+  "race" => "Tiefling"
+  })
+race4.save()
+
+race5 = Race.new({
+  "race" => "Human"
+  })
+race5.save()
+
+race6 = Race.new({
+  "race" => "Drawf"
+  })
+race6.save()
+
+race7 = Race.new({
+  "race" => "Gnome"
+  })
+race7.save()
+
+
+#Character
+character1 = Character.new({
+  "player_id" => player2.id,
+  "character_name" => "Rurich",
+  "race_id" => race5.id,
+  "character_class_id" => class1.id,
+  "level" => "7"
+})
+ character1.save()
+
+character2 = Character.new({
+  "player_id" => player3.id,
+  "character_name" => "Kirta",
+  "race_id" => race7.id ,
+  "character_class_id" => class7.id,
+  "level" => "9"
+})
+character2.save()
+
+character5 = Character.new({
+  "player_id" => player1.id ,
+  "character_name" => "Koopa",
+  "race_id" => race6.id,
+  "character_class_id" => class5.id,
+  "level" => "3"
+})
+character5.save()
+
+
+#Campaign
+campaign1 = Campaign.new({
+  "campaign_name" => "Curse of Stradh"
+  })
+campaign1.save()
+
+campaign2 = Campaign.new({
+  "campaign_name" => "Tomb of Annihilation"
+  })
+campaign2.save()
+
+
+#DungeonMaster
+dm1 = DungeonMaster.new({
+  "dm_name" => "Calum",
+  "campaign_id" => campaign1.id,
+  "level_req" => "2"
+})
+ dm1.save()
+
+dm2 = DungeonMaster.new({
+  "dm_name" => "John",
+  "campaign_id" => campaign2.id,
+  "level_req" => "7"
+})
+ dm2.save()
+
 
 
 

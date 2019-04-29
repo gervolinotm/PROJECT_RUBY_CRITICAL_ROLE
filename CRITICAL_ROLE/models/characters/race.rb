@@ -19,7 +19,7 @@ class Race
         )
         RETURNING id;"
     values = [@race]
-    result = SqlRunner.run(sql, values).first
+    results = SqlRunner.run(sql, values).first
     @id = results['id'].to_i
   end
 

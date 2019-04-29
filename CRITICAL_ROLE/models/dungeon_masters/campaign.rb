@@ -19,7 +19,7 @@ class Campaign
         )
         RETURNING id;"
       values = [@campaign_name]
-      results = SqlRunner(sql, values).first
+      results = SqlRunner.run(sql, values).first
       @id = results['id'].to_i
   end
 
