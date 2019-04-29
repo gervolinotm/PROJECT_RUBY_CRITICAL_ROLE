@@ -8,8 +8,8 @@
 <% @characters.each do |character| %>
   <p>Name: <%= character.player_name.capitalize %></p>
   <p>Character Name: <%= character.character_name.capitalize %></p>
-  <p>Race: <%= character.race.capitalize %></p>
-  <p>Class: <%= character.character_class.capitalize %></p>
+  <p>Race: <%= character.race %></p>
+  <p>Class: <%= character.character_class %></p>
   <p>Level: <%= character.level %></p>
   <p><a href="/characters/<%= character.id %>">Show Character</a></p>
   <br>

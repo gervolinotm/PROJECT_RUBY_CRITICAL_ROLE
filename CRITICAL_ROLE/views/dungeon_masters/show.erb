@@ -3,7 +3,7 @@
 <h2>Welcome, almighty one!</h2>
 <h2>What can this lowly servant help you with?</h2>
 <br>
-<h3>Name: <%= @dm.dm_name %></h3>
+<h3>Name: <%= @dm.dm_name.capitalize %></h3>
 <p>Campaign: <%= @dm.campaign %></p>
 <p>Level Req: <%= @dm.level_req %></p>
 <h4><a href="/dungeon-masters/<%= @dm.id %>/edit">Update Details</a></h4>

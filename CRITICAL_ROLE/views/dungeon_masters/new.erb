@@ -1,6 +1,6 @@
 <form action="/dungeon-masters" method="post">
   <label for="dm-name">DM Name:</label>
-  <input type="text" name="dm_name" id="dm-name">
+  <input type="text" name="dm_name" id="dm-name" required>
   <br>
   <label for="campaign">Select Campaign:</label>
   <select name="campaign" id="campaign">
@@ -14,7 +14,7 @@
   </select>
 <br>
   <label for="level-req">Level Req:</label>
-  <input type="number" name="level_req" id="level-req">
+  <input type="number" name="level_req" id="level-req" required>
 <br>
   <input type="submit" value="Start New Campaign">
 </form>

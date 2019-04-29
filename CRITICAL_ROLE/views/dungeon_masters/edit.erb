@@ -1,6 +1,6 @@
 <form action="/dungeon-masters/<%= @dm.id %>" method="post">
   <label for="dm-name">DM Name:</label>
-  <input type="text" name="dm_name" id="dm-name" value="<%= @dm.dm_name %>">
+  <input type="text" name="dm_name" id="dm-name" value="<%= @dm.dm_name %>"required>
   <br>
   <label for="campaign">Select Campaign:</label>
   <select name="campaign" id="campaign">
@@ -14,7 +14,7 @@
   </select>
 <br>
   <label for="level-req">Level Req:</label>
-  <input type="number" name="level_req" id="level-req" value="<%= @dm.level_req %>">
+  <input type="number" name="level_req" id="level-req" value="<%= @dm.level_req %>" required>
 <br>
   <input type="submit" value="Update Campaign">
 </form>

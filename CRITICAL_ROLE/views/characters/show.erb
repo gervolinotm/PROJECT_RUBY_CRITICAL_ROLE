@@ -5,8 +5,8 @@
 <br>
 <h3><%= @character.player_name.capitalize %></h3>
 <p>Character Name: <%= @character.character_name.capitalize %></p>
-<p>Race: <%= @character.race.capitalize %></p>
-<p>Class: <%= @character.character_class.capitalize %></p>
+<p>Race: <%= @character.race %></p>
+<p>Class: <%= @character.character_class%></p>
 <p>Level: <%= @character.level %></p>
 <h4><a href="/characters/<%= @character.id %>/edit">Update Character</a></h4>
 <form action="/characters/<%= @character.id %>/delete" method="post">
