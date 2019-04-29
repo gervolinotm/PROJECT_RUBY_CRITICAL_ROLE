@@ -4,14 +4,14 @@ class CharacterClass
 
   attr_reader :id
   attr_accessor :class_name
-  
+
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @class_name = options['class_name']
   end
 
   def save()
-    sql = "INSERT INTO classes
+    sql = "INSERT INTO character_classes
     (
       class_name
       ) VALUES (
@@ -24,7 +24,7 @@ class CharacterClass
   end
 
   def update()
-    sql = "UPDATE classes
+    sql = "UPDATE character_classes
     SET (
         class_name
       ) = (
@@ -36,14 +36,14 @@ class CharacterClass
   end
 
   def self.all()
-    sql = "SELECT * FROM classes;"
+    sql = "SELECT * FROM character_classes;"
     classes = SqlRunner.run(sql)
     result = Character.map_item(classes)
     return result
   end
 
   def self.find( id )
-    sql = "SELECT * FROM classes
+    sql = "SELECT * FROM character_classes
     WHERE id = $1;"
     values = [id]
     result = SqlRunner.run(sql, values).first
@@ -51,12 +51,12 @@ class CharacterClass
   end
 
   def self.delete_all()
-    sql = "DELETE FROM classes;"
+    sql = "DELETE FROM character_classes;"
     SqlRunner.run(sql)
   end
 
   def self.destroy( id )
-    sql = "DELETE FROM classes
+    sql = "DELETE FROM character_classes
     WHERE id = $1;"
     values = [id]
     SqlRunner.run(sql, values)
