@@ -2,27 +2,29 @@ require_relative('../../db/sql_runner.rb')
 
 class DungeonMaster
 
-  attr_reader :id
-  attr_accessor :dm_name, :campaign, :level_req
+  attr_reader :id, :campaign_id
+  attr_accessor :dm_name, :min_level, :max_level
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @dm_name = options['dm_name']
-    @campaign = options['campaign']
-    @level_req = options['level_req'].to_i
+    @campaign_id = options['campaign_id'].to_i
+    @min_level = options['min_level'].to_i
+    @max_level = options['max_level'].to_i
   end
 
   def save()
     sql = "INSERT INTO dungeon_masters
     (
       dm_name,
-      campaign,
-      level_req
+      campaign_id,
+      min_level,
+      max_level
       ) VALUES (
-        $1, $2, $3
+        $1, $2, $3, $4
         )
         RETURNING id;"
-    values = [@dm_name, @campaign, @level_req]
+    values = [@dm_name, @campaign_id, @min_level, @max_level]
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
@@ -31,14 +33,15 @@ class DungeonMaster
     sql = "UPDATE dungeon_masters
     SET (
       dm_name,
-      campaign,
-      level_req
+      campaign_id,
+      min_level,
+      max_level
     ) = (
-      $1, $2, $3
+      $1, $2, $3, $4
     )
-    WHERE id = $4;
+    WHERE id = $5;
     "
-    values = [@dm_name, @campaign, @level_req, @id]
+    values = [@dm_name, @campaign_id, @min_level, @max_level, @id]
     SqlRunner.run(sql, values)
   end
 

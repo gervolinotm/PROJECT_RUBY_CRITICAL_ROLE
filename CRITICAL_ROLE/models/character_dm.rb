@@ -2,8 +2,7 @@ require_relative('../db/sql_runner.rb')
 
 class CharacterDM
 
-  attr_reader :id
-  attr_accessor :dm_id, :character_id
+  attr_reader :id, :dm_id, :character_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']

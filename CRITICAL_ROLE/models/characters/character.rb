@@ -1,35 +1,36 @@
 require_relative('../../db/sql_runner.rb')
 require_relative('../dungeon_masters/dungeon_master.rb')
+require_relative('./player.rb')
+require_relative('./race.rb')
+require_relative('./character_class.rb')
 
 class Character
 
-  attr_reader :id, :dm_id
-  attr_accessor :player_name, :character_name, :race, :character_class, :level
+  attr_reader :id, :player_id, :race_id, :character_class_id
+  attr_accessor :character_name, :level
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @player_name = options['player_name']
+    @player_name = options['player_id'].to_i
     @character_name = options['character_name']
-    @race = options['race']
-    @character_class = options['character_class']
+    @race = options['race_id'].to_i
+    @character_class = options['character_class_id'].to_i
     @level = options['level'].to_i
-    @dm_id = options['dm_id'].to_i
   end
 
   def save()
     sql = "INSERT INTO characters
     (
-      player_name,
+      player_id,
       character_name,
-      race,
-      character_class,
-      level,
-      dm_id
+      race_id,
+      character_class_id,
+      level
       ) VALUES (
-        $1, $2, $3, $4, $5, $6
+        $1, $2, $3, $4, $5
         )
         RETURNING id;"
-    values = [@player_name, @character_name, @race, @character_class, @level, @dm_id]
+    values = [@player_id, @character_name, @race_id, @character_class_id, @level]
     result = SqlRunner.run(sql, values).first
     @id = result['id'].to_i
   end
@@ -37,27 +38,19 @@ class Character
   def update()
     sql = "UPDATE characters
     SET (
-      player_name,
+      player_id,
       character_name,
-      race,
-      character_class,
-      level,
-      dm_id
+      race_id,
+      character_class_id,
+      level
       ) = (
-        $1, $2, $3, $4, $5, $6
+        $1, $2, $3, $4, $5
         )
-        WHERE id = $7;"
-    values = [@player_name, @character_name, @race, @character_class, @level, @dm_id, @id]
+        WHERE id = $6;"
+    values = [@player_id, @character_name, @race_id, @character_class_id, @level, @id]
     SqlRunner.run(sql, values)
   end
 
-  def dungeon_master()
-    sql = "SELECT * FROM dungeon_masters
-    WHERE id = $1;"
-    values = [@dm_id]
-    result = SqlRunner.run(sql, values).first
-    return DungeonMaster.new(result)
-  end
 
   def self.all()
     sql = "SELECT * FROM characters;"
