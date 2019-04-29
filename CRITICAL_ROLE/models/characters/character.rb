@@ -1,5 +1,5 @@
-require_relative('../db/sql_runner.rb')
-require_relative('./dungeon_master.rb')
+require_relative('../../db/sql_runner.rb')
+require_relative('../dungeon_masters/dungeon_master.rb')
 
 class Character
 

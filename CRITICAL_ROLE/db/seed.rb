@@ -1,6 +1,6 @@
 require('pry-byebug')
-require_relative('../models/character.rb')
-require_relative('../models/dungeon_master.rb')
+require_relative('../models/characters/character.rb')
+require_relative('../models/dungeon_masters/dungeon_master.rb')
 
 Character.delete_all()
 DungeonMaster.delete_all()

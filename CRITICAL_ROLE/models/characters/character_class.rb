@@ -1,12 +1,13 @@
-require_relative('../db/sql_runner.rb')
+require_relative('../../db/sql_runner.rb')
 
 class CharacterClass
 
-  attr_reader :class_name, :id
-
+  attr_reader :id
+  attr_accessor :class_name
+  
   def initialize(options)
-    @class_name = options['class_name']
     @id = options['id'].to_i if options['id']
+    @class_name = options['class_name']
   end
 
   def save()
