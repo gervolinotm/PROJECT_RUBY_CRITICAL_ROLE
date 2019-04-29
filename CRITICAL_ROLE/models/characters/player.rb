@@ -26,8 +26,8 @@ class Player
   end
 
   def update()
-    sql = "UPDATE players SET
-    (
+    sql = "UPDATE players
+    SET (
       first_name,
       last_name
     ) = (
@@ -36,6 +36,10 @@ class Player
       WHERE id = $3;"
     values = [@first_name, @last_name, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def format_name()
+    return "#{@first_name.capitalize} #{@last_name.capitalize}"
   end
 
   def self.all()

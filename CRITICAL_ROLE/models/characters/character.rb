@@ -51,6 +51,20 @@ class Character
     SqlRunner.run(sql, values)
   end
 
+  def race()
+    race = Race.find(@race_id)
+    return race
+  end
+
+  def player_name()
+    player = Player.find(@player_id)
+    return player.format_name
+  end
+
+  def character_class()
+    class_name = CharacterClass.find(@character_class_id)
+    return class_name
+  end
 
   def self.all()
     sql = "SELECT * FROM characters;"
@@ -78,7 +92,6 @@ class Character
     values = [id]
     SqlRunner.run(sql, values)
   end
-
 
   def self.map_item(data_source)
     result = data_source.map { |character| Character.new(character)}

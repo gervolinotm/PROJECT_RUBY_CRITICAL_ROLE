@@ -45,6 +45,11 @@ class DungeonMaster
     SqlRunner.run(sql, values)
   end
 
+  def campaign()
+    campaign_name = Campaign.find(@campaign_id)
+    return campaign_name
+  end
+
   def self.all()
     sql = "SELECT * FROM dungeon_masters;"
     dms = SqlRunner.run(sql)

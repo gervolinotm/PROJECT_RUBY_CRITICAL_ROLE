@@ -38,7 +38,7 @@ class CharacterClass
   def self.all()
     sql = "SELECT * FROM character_classes;"
     classes = SqlRunner.run(sql)
-    result = Character.map_item(classes)
+    result = CharacterClass.map_item(classes)
     return result
   end
 

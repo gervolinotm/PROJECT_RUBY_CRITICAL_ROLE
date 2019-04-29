@@ -2,6 +2,10 @@ require('sinatra')
 require('sinatra/contrib/all')
 require('pry')
 require_relative('../models/characters/character.rb')
+require_relative('../models/characters/character_class.rb')
+require_relative('../models/characters/player.rb')
+require_relative('../models/characters/race.rb')
+require_relative('../models/dungeon_masters/campaign.rb')
 require_relative('../models/dungeon_masters/dungeon_master.rb')
 also_reload('../models/*')
 
@@ -11,7 +15,9 @@ get '/characters' do
 end
 
 get '/characters/new' do
-  @dms = DungeonMaster.all()
+  @players = Player.all()
+  @races = Race.all()
+  @classes = CharacterClass.all()
   erb(:"characters/new")
 end
 
