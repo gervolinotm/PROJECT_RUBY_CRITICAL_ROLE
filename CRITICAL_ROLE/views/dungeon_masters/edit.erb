@@ -1,20 +1,40 @@
 <form action="/dungeon-masters/<%= @dm.id %>" method="post">
+
   <label for="dm-name">DM Name:</label>
   <input type="text" name="dm_name" id="dm-name" value="<%= @dm.dm_name %>"required>
+
   <br>
+
   <label for="campaign">Select Campaign:</label>
-  <select name="campaign" id="campaign">
-    <option value="Curse of Stradh">Curse of Stradh</option>
-    <option value="Dungeon of the Mad Mage">Dungeon of the Mad Mage</option>
-    <option value="Tomb of Annihilation ">Tomb of Annihilation </option>
-    <option value="Out of the Abyss ">Out of the Abyss </option>
-    <option value="Hoard of the Dragon Queen ">Hoard of the Dragon Queen </option>
-    <option value="Ghosts of Saltmarsh ">Ghosts of Saltmarsh </option>
-    <option value="Death House ">Death House </option>
+  <select name="campaign_id" id="campaign">
+    <% @campaigns.each do |campaign| %>
+    <% if campaign.id == @dm.campaign_id %>
+       <option value=<%= campaign.id %> selected><%= campaign.campaign_name %></option>
+    <% else %>
+       <option value=<%= campaign.id %>><%= campaign.campaign_name %></option>
+    <% end %>
+    <% end %>
   </select>
+
 <br>
-  <label for="level-req">Level Req:</label>
-  <input type="number" name="level_req" id="level-req" value="<%= @dm.level_req %>" required>
+
+  <label for="min-level">Level Req:</label>
+  <input type="number" name="min_level" id="min-level" value="<%= @dm.min_level %>" min="1" max="20" required>
+
 <br>
+
+  <label for="max-level">Max Level:</label>
+  <input type="number" name="max_level" id="max-level" value="<%= @dm.max_level %>" min="1" max="20" required>
+
+<br>
+
   <input type="submit" value="Update Campaign">
 </form>
+
+<!-- <option value="Curse of Stradh">Curse of Stradh</option>
+<option value="Dungeon of the Mad Mage">Dungeon of the Mad Mage</option>
+<option value="Tomb of Annihilation ">Tomb of Annihilation </option>
+<option value="Out of the Abyss ">Out of the Abyss </option>
+<option value="Hoard of the Dragon Queen ">Hoard of the Dragon Queen </option>
+<option value="Ghosts of Saltmarsh ">Ghosts of Saltmarsh </option>
+<option value="Death House ">Death House </option> -->

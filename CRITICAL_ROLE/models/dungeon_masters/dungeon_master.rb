@@ -7,7 +7,7 @@ class DungeonMaster
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @dm_name = options['dm_name']
+    @dm_name = options['dm_name'].capitalize
     @campaign_id = options['campaign_id'].to_i
     @min_level = options['min_level'].to_i
     @max_level = options['max_level'].to_i

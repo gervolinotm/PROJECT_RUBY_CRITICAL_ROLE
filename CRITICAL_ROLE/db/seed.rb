@@ -160,14 +160,16 @@ campaign2.save()
 dm1 = DungeonMaster.new({
   "dm_name" => "Calum",
   "campaign_id" => campaign1.id,
-  "level_req" => "2"
+  "min_level" => "2",
+  "max_level" => "4"
 })
  dm1.save()
 
 dm2 = DungeonMaster.new({
   "dm_name" => "John",
   "campaign_id" => campaign2.id,
-  "level_req" => "7"
+  "min_level" => "7",
+  "max_level" => "10"
 })
  dm2.save()
 

@@ -1,31 +1,42 @@
 <form action="/characters" method="post">
+
   <label for="player-name">Player Name:</label>
   <select name="player_id" id="player-name">
     <% @players.each do |player| %>
       <option value="<%= player.id %>"><%= player.format_name %></option>
     <% end %>
   </select>
+
   <br>
+
   <label for="character-name">Character Name:</label>
   <input type="text" name="character_name" id="player-name" required/>
-  <br>
+
+  <br
+
   <label for="race">Select Race:</label>
   <select name="race_id" id="race">
     <% @races.each do |race_name| %>
       <option value="<%= race_name.id %>"><%= race_name.race %></option>
     <% end %>
   </select>
+
   <br>
+
   <label for="class">Select Class:</label>
   <select name="character_class_id" id="class">
     <% @classes.each do |char_class| %>
       <option value="<%= char_class.id %>"><%= char_class.class_name %></option>
     <% end %>
   </select>
+
   <br>
+
   <label for="level">Level:</label>
   <input type="number" name="level" id="level" min="1" max="20" required/>
+
   <br>
+  
   <input type="submit"value="Create New Character"/>
 </form>
 

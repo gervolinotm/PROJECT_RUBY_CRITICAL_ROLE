@@ -2,7 +2,11 @@ require('sinatra')
 require('sinatra/contrib/all')
 require('pry')
 require_relative('../models/characters/character.rb')
+require_relative('../models/characters/character_class.rb')
+require_relative('../models/characters/player.rb')
+require_relative('../models/characters/race.rb')
 require_relative('../models/dungeon_masters/dungeon_master.rb')
+require_relative('../models/dungeon_masters/campaign.rb')
 also_reload('../models/*')
 
 get "/dungeon-masters" do
@@ -11,6 +15,7 @@ get "/dungeon-masters" do
 end
 
 get "/dungeon-masters/new" do
+  @campaigns = Campaign.all()
   @dms = DungeonMaster.all()
   erb(:"dungeon_masters/new")
 end
@@ -27,6 +32,7 @@ post "/dungeon-masters" do
 end
 
 get "/dungeon-masters/:id/edit" do
+  @campaigns = Campaign.all()
   @dm = DungeonMaster.find( params['id'].to_i)
   erb(:"dungeon_masters/edit")
 end

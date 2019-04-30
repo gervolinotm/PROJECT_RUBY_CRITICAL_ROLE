@@ -3,9 +3,10 @@
 <h2>Welcome, almighty one!</h2>
 <h2>What can this lowly servant help you with?</h2>
 <br>
-<h3>Name: <%= @dm.dm_name.capitalize %></h3>
-<p>Campaign: <%= @dm.campaign %></p>
-<p>Level Req: <%= @dm.level_req %></p>
+<h3><%= @dm.dm_name.capitalize %></h3>
+<p>Campaign: <%= @dm.campaign.campaign_name %></p>
+<p>Level Req: <%= @dm.min_level %></p>
+<p>Max Level: <%= @dm.max_level %></p>
 <h4><a href="/dungeon-masters/<%= @dm.id %>/edit">Update Details</a></h4>
 <form action="/dungeon-masters/<%= @dm.id %>/delete" method="post">
   <input type="submit" value="Delete Campaign">

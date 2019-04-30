@@ -1,0 +1,16 @@
+<h1>DUNGEONS & DRAGONS</h1>
+
+<li><a href="/players/register">Register Here</a></li>
+
+<h2>Registered Players</h2
+<br>
+<br>
+
+<% @players.each do |player| %>
+<h3>First Name:<%= player.first_name.capitalize %></h3>
+<h3>Last Name: <%= player.last_name.capitalize %></h3>
+<form action="/players/<%= player.id %>/delete" method="post">
+  <input type="submit" value="Delete Player">
+</form>
+<br>
+<% end %>

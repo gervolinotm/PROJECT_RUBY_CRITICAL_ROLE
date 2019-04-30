@@ -30,7 +30,7 @@ CREATE TABLE races (
 CREATE TABLE dungeon_masters (
   id SERIAL4 PRIMARY KEY,
   dm_name VARCHAR(255),
-  campaign_id INT4 REFERENCES campaigns(id),
+  campaign_id INT4 REFERENCES campaigns(id) ON DELETE CASCADE,
   min_level INT4,
   max_level INT4
 );
@@ -40,12 +40,12 @@ CREATE TABLE characters (
   player_id INT4 REFERENCES players(id),
   character_name VARCHAR(255),
   race_id INT4 REFERENCES races(id),
-  character_class_id INT4 REFERENCES character_classes(id),
+  character_class_id INT4 REFERENCES character_classes(id)  ON DELETE CASCADE,
   level INT4
 );
 
 CREATE TABLE character_dms (
   id SERIAL4 PRIMARY KEY,
-  character_id INT4 REFERENCES characters(id),
-  dungeon_master_id INT4 REFERENCES dungeon_masters(id)
+  character_id INT4 REFERENCES characters(id) ON DELETE CASCADE,
+  dungeon_master_id INT4 REFERENCES dungeon_masters(id) ON DELETE CASCADE
 );
