@@ -6,10 +6,10 @@
 <h2>Adventurers</h2>
 
 <% @characters.each do |character| %>
-  <p>Name: <%= character.player_name.capitalize %></p>
+  <p>Name: <%= character.player_name %></p>
   <p>Character Name: <%= character.character_name.capitalize %></p>
-  <p>Race: <%= character.race %></p>
-  <p>Class: <%= character.character_class %></p>
+  <p>Race: <%= character.race.race %></p>
+  <p>Class: <%= character.character_class.class_name %></p>
   <p>Level: <%= character.level %></p>
   <p><a href="/characters/<%= character.id %>">Show Character</a></p>
   <br>

@@ -6,8 +6,8 @@ require_relative('./character_class.rb')
 
 class Character
 
-  attr_reader :id, :player_id, :race_id, :character_class_id
-  attr_accessor :character_name, :level
+  attr_reader :id
+  attr_accessor :character_name, :level, :player_id, :race_id, :character_class_id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']

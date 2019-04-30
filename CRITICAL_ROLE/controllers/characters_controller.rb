@@ -33,7 +33,9 @@ post '/characters' do
 end
 
 get '/characters/:id/edit' do
-  @dms = DungeonMaster.all()
+  @races = Race.all()
+  @players = Player.all()
+  @classes = CharacterClass.all()
   @character = Character.find( params['id'].to_i )
   erb(:"characters/edit")
 end
