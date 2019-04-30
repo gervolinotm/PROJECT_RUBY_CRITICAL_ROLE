@@ -38,6 +38,16 @@ class CharacterDM
     SqlRunner.run(sql, values)
   end
 
+  def character()
+    character = Character.find(@character_id)
+    return character
+  end
+
+  def dungeon_master()
+    dungeon_master = DungeonMaster.find(@dm_id)
+    return dungeon_master
+  end
+
   def self.all()
     sql = "SELECT * FROM character_dms;"
     dms = SqlRunner.run(sql)
