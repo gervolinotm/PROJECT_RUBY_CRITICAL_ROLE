@@ -37,9 +37,9 @@ CREATE TABLE dungeon_masters (
 
 CREATE TABLE characters (
   id SERIAL4 PRIMARY KEY,
-  player_id INT4 REFERENCES players(id),
+  player_id INT4 REFERENCES players(id) ON DELETE CASCADE,
   character_name VARCHAR(255),
-  race_id INT4 REFERENCES races(id),
+  race_id INT4 REFERENCES races(id) ON DELETE CASCADE,
   character_class_id INT4 REFERENCES character_classes(id)  ON DELETE CASCADE,
   level INT4
 );
