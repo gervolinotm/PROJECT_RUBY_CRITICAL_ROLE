@@ -8,6 +8,8 @@ require_relative('../models/characters/player.rb')
 require_relative('../models/dungeon_masters/dungeon_master.rb')
 require_relative('../models/dungeon_masters/campaign.rb')
 
+require_relative('../models/character_dm.rb')
+
 CharacterDM.delete_all()
 Character.delete_all()
 Player.delete_all()
@@ -186,6 +188,11 @@ campaign2 = Campaign.new({
   })
 campaign2.save()
 
+campaign3 = Campaign.new({
+  "campaign_name" => "Death House"
+  })
+campaign3.save()
+
 
 #DungeonMaster
 dm1 = DungeonMaster.new({
@@ -203,6 +210,16 @@ dm2 = DungeonMaster.new({
   "max_level" => "10"
 })
  dm2.save()
+
+dm3 = DungeonMaster.new({
+  "dm_name" => "John",
+  "campaign_id" => campaign3.id,
+  "min_level" => "1",
+  "max_level" => "3"
+})
+ dm3.save()
+
+
 
  #CharacterDM
  assignment1 = CharacterDM.new({
@@ -222,6 +239,12 @@ assignment2.save()
    "character_id" => character1.id
    })
 assignment3.save()
+
+ assignment4 = CharacterDM.new({
+   "dm_id" => dm3.id,
+   "character_id" => character5.id
+   })
+assignment4.save()
 
 
 

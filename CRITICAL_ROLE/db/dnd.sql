@@ -47,5 +47,5 @@ CREATE TABLE characters (
 CREATE TABLE character_dms (
   id SERIAL4 PRIMARY KEY,
   character_id INT4 REFERENCES characters(id) ON DELETE CASCADE,
-  dungeon_master_id INT4 REFERENCES dungeon_masters(id) ON DELETE CASCADE
+  dm_id INT4 REFERENCES dungeon_masters(id) ON DELETE CASCADE
 );

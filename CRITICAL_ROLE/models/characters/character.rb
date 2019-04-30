@@ -66,6 +66,17 @@ class Character
     return class_name
   end
 
+  def campaigns_participating()
+    sql = "SELECT * FROM dungeon_masters
+    INNER JOIN character_dms
+    ON dungeon_masters.id = character_dms.dm_id
+    WHERE character_dms.character_id = $1;"
+    values = [@id]
+    characters = SqlRunner.run(sql, values)
+    results = DungeonMaster.map_item(characters)
+    return results
+  end
+
   def self.all()
     sql = "SELECT * FROM characters;"
     characters = SqlRunner.run(sql)

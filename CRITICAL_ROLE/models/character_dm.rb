@@ -8,7 +8,7 @@ class CharacterDM
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @dm_id = options['dm_id'].to_i
-    @character_id = optiond['character_id'].to_i
+    @character_id = options['character_id'].to_i
   end
 
   def save()
@@ -19,7 +19,7 @@ class CharacterDM
       ) VALUES (
         $1, $2
         )
-        RETURING id;"
+        RETURNING id;"
     values = [@dm_id, @character_id]
     results = SqlRunner.run(sql, values).first
     @id = results['id'].to_i
@@ -50,8 +50,8 @@ class CharacterDM
 
   def self.all()
     sql = "SELECT * FROM character_dms;"
-    dms = SqlRunner.run(sql)
-    result = CharacterDM.map_item(dms)
+    char_dms = SqlRunner.run(sql)
+    result = CharacterDM.map_item(char_dms)
     return result
   end
 

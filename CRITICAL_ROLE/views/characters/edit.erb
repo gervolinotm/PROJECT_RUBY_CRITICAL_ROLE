@@ -4,7 +4,7 @@
   <select name="player_id" id="player-id">
   <% @players.each do |player| %>
   <% if player.id == @character.player_id %>
-     <option value=<%= player.id %>selected><%= player.format_name %></option>
+     <option value=<%= player.id %> selected><%= player.format_name %></option>
   <% else %>
      <option value="<%= player.id %>"><%= player.format_name %></option>
   <% end %>
