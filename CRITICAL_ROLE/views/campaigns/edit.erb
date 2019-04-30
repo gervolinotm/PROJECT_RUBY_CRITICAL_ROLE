@@ -1,0 +1,10 @@
+<form action="/campaigns/<%= @campaign.id %>" method="post">
+
+  <label for="campaign-name">Campaign Name:</label>
+  <input type="text" name="campaign_name" id="campaign-name" value="<%= @campaign.campaign_name %>">
+
+  <br>
+
+  <input type="submit" value="Confirm Edits">
+
+</form>

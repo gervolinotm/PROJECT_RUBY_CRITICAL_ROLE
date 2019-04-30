@@ -8,7 +8,7 @@ require_relative('../models/characters/player.rb')
 require_relative('../models/dungeon_masters/dungeon_master.rb')
 require_relative('../models/dungeon_masters/campaign.rb')
 
-
+CharacterDM.delete_all()
 Character.delete_all()
 Player.delete_all()
 CharacterClass.delete_all()
@@ -77,6 +77,26 @@ class8 = CharacterClass.new({
   })
   class8.save()
 
+class9 = CharacterClass.new({
+  "class_name" => "Druid"
+  })
+  class9.save()
+
+class10 = CharacterClass.new({
+  "class_name" => "Fighter"
+  })
+  class10.save()
+
+class11 = CharacterClass.new({
+  "class_name" => "Monk"
+  })
+  class11.save()
+
+class12 = CharacterClass.new({
+  "class_name" => "Warlock"
+  })
+  class12.save()
+
 
 #Race
 race1 = Race.new({
@@ -113,6 +133,17 @@ race7 = Race.new({
   "race" => "Gnome"
   })
 race7.save()
+
+race8 = Race.new({
+  "race" => "Dragonborn"
+  })
+race8.save()
+
+race9 = Race.new({
+  "race" => "Elf"
+  })
+race9.save()
+
 
 
 #Character
@@ -172,6 +203,29 @@ dm2 = DungeonMaster.new({
   "max_level" => "10"
 })
  dm2.save()
+
+ #CharacterDM
+ assignment1 = CharacterDM.new({
+   "dm_id" => dm1.id,
+   "character_id" => character5.id
+   })
+assignment1.save()
+
+ assignment2 = CharacterDM.new({
+   "dm_id" => dm2.id,
+   "character_id" => character2.id
+   })
+assignment2.save()
+
+ assignment3 = CharacterDM.new({
+   "dm_id" => dm2.id,
+   "character_id" => character1.id
+   })
+assignment3.save()
+
+
+
+
 
 
 

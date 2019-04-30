@@ -1,0 +1,14 @@
+<h1>DUNGEONS & DRAGONS</h1>
+
+<li><a href="/campaigns/add">Add Campaign</a></li>
+
+<h2>Campaigns</h2>
+
+<% @campaigns.each do |campaign| %>
+  <h3> -<%= campaign.campaign_name %></h3>
+  <a href="/campaigns/<%= campaign.id %>/edit">Edit Campaign</a>
+  <form action="/campaigns/<%= campaign.id %>/delete" method="post">
+    <input type="submit" value="Delete Campaign">
+  </form>
+  <br>
+<% end %>

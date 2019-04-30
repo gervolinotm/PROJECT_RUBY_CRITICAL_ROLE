@@ -25,12 +25,8 @@ class Campaign
 
   def update()
     sql = "UPDATE campaigns
-    SET (
-      campaign_name
-      ) = (
-        $1
-        )
-        WHERE id = $2;"
+    SET campaign_name = $1
+    WHERE id = $2;"
     values = [@campaign_name, @id]
     SqlRunner.run(sql, values)
   end
