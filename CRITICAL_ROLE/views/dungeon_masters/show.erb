@@ -7,6 +7,7 @@
 <p>Campaign: <%= @dm.campaign.campaign_name %></p>
 <p>Level Req: <%= @dm.min_level %></p>
 <p>Max Level: <%= @dm.max_level %></p>
+<h3><a href="/dungeon-masters/<%= @dm.id %>/add-table">Create Table</a></h3>
 <h4><a href="/dungeon-masters/<%= @dm.id %>/edit">Update Details</a></h4>
 <form action="/dungeon-masters/<%= @dm.id %>/delete" method="post">
   <input type="submit" value="Delete Campaign">

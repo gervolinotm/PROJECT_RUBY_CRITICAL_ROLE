@@ -7,6 +7,7 @@ require_relative('../models/characters/player.rb')
 require_relative('../models/characters/race.rb')
 require_relative('../models/dungeon_masters/campaign.rb')
 require_relative('../models/dungeon_masters/dungeon_master.rb')
+require_relative('../models/character_dm.rb')
 also_reload('../models/*')
 
 get '/characters' do

@@ -8,25 +8,23 @@ require_relative('../models/characters/race.rb')
 require_relative('../models/dungeon_masters/dungeon_master.rb')
 require_relative('../models/dungeon_masters/campaign.rb')
 require_relative('../models/character_dm.rb')
-
 also_reload('../models/*')
 
-get '/players' do
-  @players = Player.all()
-  erb(:"players/index")
+get '/dungeon-masters/:id/add-table' do
+  @dm = DungeonMaster.find( params['id'].to_i )
+  @characters = Character.all()
+  erb(:"character_dms/add_table")
 end
 
-get '/players/register' do
-  erb(:"players/register")
+post '/dungeon-masters/:id' do
+  for param in params
+    @character_dm = CharacterDM( param )
+    @character_dm.save()
+  end
+  erb(:"character_dms/create")
 end
 
-post '/players' do
-  @player = Player.new( params )
-  @player.save()
-  erb(:"players/create")
-end
-
-post '/players/:id/delete' do
-  Player.destroy( params['id'].to_i )
-  redirect to ('/players')
+get '/dungeon-masters/:id/tables' do
+   @dm = DungeonMaster.find( params['id'].to_i )
+   erb(:"character_dms/display")
 end
