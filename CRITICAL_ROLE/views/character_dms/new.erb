@@ -11,7 +11,7 @@
    <br>
    <br>
    <% @characters.each do |character| %>
-   <% if ((character.level >= @dm.min_level) && (character.level <= @dm.max_level))  %>
+   <% if ((character.level >= @dm.min_level) && (character.level <= @dm.max_level)) %>
    <div class="boxed">
      <input type="checkbox" name="character_ids[]" id="character" value="<%= character.id%>">
      <label for="character">
@@ -26,8 +26,8 @@
        Level: <%= character.level %>
      </label>
      <br>
-     <br>
    </div>
+     <br>
 
    <% end %>
    <% end %>

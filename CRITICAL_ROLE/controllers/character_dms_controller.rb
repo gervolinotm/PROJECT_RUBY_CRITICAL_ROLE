@@ -13,6 +13,7 @@ also_reload('../models/*')
 get '/dungeon-masters/:id/add-table' do
   @dm = DungeonMaster.find( params['id'].to_i )
   @characters = Character.all()
+  @roster = CharacterDM.all()
   erb(:"character_dms/new")
 end
 
