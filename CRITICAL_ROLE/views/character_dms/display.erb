@@ -1,17 +1,18 @@
 <h1>DUNGEONS & DRAGONS</h1>
 
-<h2>DM <br><%= @dm.dm_name %></h2>
-<br>
-<h2>Campaign <br><%= @dm.campaign.campaign_name %></h2>
+<h3><u>DM</u><br><%= @dm.dm_name %></h3>
+<h4><u>Campaign</u><br><%= @dm.campaign.campaign_name %></h4>
 <br>
 <% for character in @dm.characters_in_campaign %>
-<p>Player: <%= character.player_name %></p>
-<p>Character Name: <%= character.character_name %></p>
-<p>Race: <%= character.race.race %></p>
-<p>Class: <%= character.character_class.class_name %></p>
-<p>Level: <%= character.level %></p>
-<br>
-<br>
+<div class="boxed">
+  <p>Player: <%= character.player_name %></p>
+  <p>Character Name: <%= character.character_name %></p>
+  <p>Race: <%= character.race.race %></p>
+  <p>Class: <%= character.character_class.class_name %></p>
+  <p>Level: <%= character.level %></p>
+  <br>
+  <br>
+</div>
 <% end %>
 
 <form action="/dungeon-masters/<%= @dm.id %>/character-dms/delete-party" method="post">
