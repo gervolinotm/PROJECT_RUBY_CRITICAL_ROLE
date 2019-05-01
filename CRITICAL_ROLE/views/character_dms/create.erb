@@ -8,6 +8,4 @@
 
 <h2>Lightning strike down 10ft. infront of you, as a blinding white light blinds you. And from the light emerges... your champions/misfits.</h2>
 
-<h1>Welcome, to.... <u><%= @character_dm.dungeon_master.campaign.campaign_name %></u></h1>
-
-<p>Click <u><a href="/dungeon-masters/<%= @character_dm.dm_id %>/table">Here</a></u></p>
+<h1>Welcome, to.... <u><a href="/dungeon-masters/<%= @character_dm.dm_id %>/table"><%= @character_dm.dungeon_master.campaign.campaign_name %></a></u></h1>
