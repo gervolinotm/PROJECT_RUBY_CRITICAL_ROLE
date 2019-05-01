@@ -22,9 +22,23 @@ get "/dungeon-masters/new" do
 end
 
 get "/dungeon-masters/:id" do
-  @dm = DungeonMaster.find( params['id'].to_i)
+  @roster = CharacterDM.all()
+  @dm = DungeonMaster.find( params['id'].to_i )
   erb(:"dungeon_masters/show")
 end
+
+get "/dungeon-masters/:id/table" do
+  @dm = DungeonMaster.find( params['id'].to_i )
+  erb(:"character_dms/display")
+end
+
+# def "/dungeon-masters/:id/lineups/:id"
+#
+# end
+
+# post "/dungeon-masters/:id/lineups"
+#
+# end
 
 post "/dungeon-masters" do
   @dm = DungeonMaster.new( params )

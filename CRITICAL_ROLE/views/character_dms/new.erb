@@ -1,4 +1,4 @@
-<form action="index.html" method="post">
+<form action="/character_dms" method="post">
 
    <label for="dm-id">DM - Adventure:</label>
    <br>
@@ -12,7 +12,7 @@
    <br>
    <% @characters.each do |character| %>
    <% if ((character.level >= @dm.min_level) && (character.level <= @dm.max_level))  %>
-   <input type="checkbox" name="character_id" id="character" value="<%= character.id%> ">
+   <input type="checkbox" name="character_ids[]" id="character" value="<%= character.id%>">
    <label for="character">
      Player: <%= character.player_name %>
      <br>
@@ -29,4 +29,6 @@
 
    <% end %>
    <% end %>
+
+<input type="submit" value="Begin Adventure">
 </form>

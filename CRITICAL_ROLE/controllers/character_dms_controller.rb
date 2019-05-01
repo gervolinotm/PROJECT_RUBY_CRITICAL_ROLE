@@ -13,18 +13,19 @@ also_reload('../models/*')
 get '/dungeon-masters/:id/add-table' do
   @dm = DungeonMaster.find( params['id'].to_i )
   @characters = Character.all()
-  erb(:"character_dms/add_table")
+  erb(:"character_dms/new")
 end
 
-post '/dungeon-masters/:id' do
-  for param in params
-    @character_dm = CharacterDM( param )
+post '/character_dms' do
+  for character_id in params['character_ids']
+    @character_dm = CharacterDM.new({ "dm_id" => params['dm_id'], "character_id" => character_id})
     @character_dm.save()
   end
   erb(:"character_dms/create")
 end
 
-get '/dungeon-masters/:id/tables' do
-   @dm = DungeonMaster.find( params['id'].to_i )
-   erb(:"character_dms/display")
+post '/dungeon-masters/:id/character-dms/delete-party' do
+  @dm = DungeonMaster.find( params['id'] )
+  DungeonMaster.delete_party( @dm.id )
+  redirect to ("/dungeon-masters")
 end

@@ -61,6 +61,13 @@ class DungeonMaster
     return results
   end
 
+  def self.delete_party(id)
+    sql = "DELETE FROM character_dms
+    WHERE dm_id = $1;"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
   def self.all()
     sql = "SELECT * FROM dungeon_masters;"
     dms = SqlRunner.run(sql)
