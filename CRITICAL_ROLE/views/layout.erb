@@ -2,18 +2,27 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>DUNGEONS & DRAGONS</title>
+      <title>DUNGEONS & DRAGONS</title>
 
     <link rel="stylesheet" type="text/css" href="/styles/box.css">
+    <link rel="stylesheet" type="text/css" href="/styles/header.css">
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/characters">Characters</a></li>
-        <li><a href="/dungeon-masters">Dungeon-Masters</a></li>
-      </ul>
-    </nav>
+    <div id="header">
+      <div id="nav">
+
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/characters">Characters</a></li>
+            <li><a href="/dungeon-masters">Dungeon-Masters</a></li>
+          </ul>
+        </nav>
+        
+      </div>
+
+    </div>
+
    <%= yield %>
   </body>
 </html>

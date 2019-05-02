@@ -3,12 +3,15 @@
 <h2>Welcome to the Yawning Portal!</h2>
 <h2>What can I help you with adventurer?</h2>
 <br>
-<h3><%= @character.player_name %></h3>
-<p>Character Name: <%= @character.character_name.capitalize %></p>
-<p>Race: <%= @character.race.race %></p>
-<p>Class: <%= @character.character_class.class_name%></p>
-<p>Level: <%= @character.level %></p>
-<h4><a href="/characters/<%= @character.id %>/edit">Update Character</a></h4>
+<div class="boxed">
+  <h3><%= @character.player_name %></h3>
+  <p>Character Name: <%= @character.character_name.capitalize %></p>
+  <p>Race: <%= @character.race.race %></p>
+  <p>Class: <%= @character.character_class.class_name%></p>
+  <p>Level: <%= @character.level %></p>
+  <h4><a href="/characters/<%= @character.id %>/edit">Update Character</a></h4>
+</div>
+<br>
 <form action="/characters/<%= @character.id %>/delete" method="post">
   <input type="submit" value="Delete Character">
 </form>

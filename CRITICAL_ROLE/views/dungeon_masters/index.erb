@@ -6,11 +6,14 @@
 <h2>Dungeon Masters</h2>
 
 <% @dms.each do |dm| %>
+<div class="boxed">
   <p>Name: <%= dm.dm_name %></p>
   <p>Campaign: <%= dm.campaign.campaign_name%></p>
   <p>Level Req: <%= dm.min_level%></p>
   <p>Max level: <%= dm.max_level %></p>
   <a href="/dungeon-masters/<%= dm.id %>">Show Adventure</a>
   <br>
+</div>
+
   <br>
 <% end %>
