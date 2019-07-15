@@ -1,33 +1,30 @@
 #header {
-   background-color: #DF2E09;
-   color: black;
+  background: rgba(100, 100, 100, 0.9);
+   font-family: 'Josefin Sans';
+   font-size: large;
+   border: 2px solid black
 }
 
+.dnd_nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
 
-#nav {
-  
-  ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333333;
-  }
+.dnd_nav li {
+   float: left;
+}
 
-  li {
-    float: left;
-  }
+.dnd_nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
-  }
-
-  li a:hover {
-    background-color: #111111;
-  }
-
+.dnd_nav li a:hover {
+  background-color: teal;
 }

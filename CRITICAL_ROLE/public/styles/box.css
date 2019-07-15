@@ -1,6 +1,12 @@
 .boxed {
-  border: 1px solid green ;
-  width: 220px ;
-  margin-left: auto ;
-  margin-right: auto ;
+  border: 3px solid black;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  background-blend-mode: darken;
+  color: antiquewhite;
+  background: rgba(126, 95, 80, 0.8);
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'IM Fell DW Pica SC';
 }
