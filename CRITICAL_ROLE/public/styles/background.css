@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC|Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IM+Fell+DW+Pica+SC|Inknut+Antiqua:400,900|Josefin+Sans|Passero+One&display=swap');
 /* body {
   background-color: #F18015;
   background: "dndTavern.jpg"
@@ -13,4 +13,24 @@ body {
 
 .index-screen {
   text-align: center;
+}
+
+h1 {
+  font-family: 'Inknut Antiqua', black;
+  font-size: -webkit-xxx-large;
+  color: red;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li a {
+  font-family: 'Passero One';
+  color: chocolate;
+  font-size: x-large;
+}
+
+h2 {
+  font-family: 'Josefin Sans';
+  color: lightgoldenrodyellow;
+  font-size: -webkit-xxx-large;
 }
